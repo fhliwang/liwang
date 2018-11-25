@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC  
+    "-//mybatis.org//DTD Mapper 3.0//EN"  
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+   
+<mapper namespace="com.fh.shop.api.member.mapper.IMemberMapper">
+	<insert id="addMember" parameterType="com.fh.shop.api.member.po.Member">
+					insert into t_member (	userName,
+								password,
+								phone,
+								email,
+								birthday,
+								regTime,
+								lastLoginTime,
+								shengId,
+								shiId,
+								xianId,
+								areaInfo)
+								values (
+									#{userName},#{password},#{phone},#{email},#{birthday},#{regTime},#{lastLoginTime},#{shengId},#{shiId},#{xianId},#{areaInfo}
+								)
+	</insert>
+
+	<select id="isexist" parameterType="string" resultType="com.fh.shop.api.member.po.Member">
+			select 	id,
+	userName,
+	password,
+	phone,
+	email,
+	birthday,
+	regTime,
+	lastLoginTime,
+	shengId,
+	shiId,
+	xianId,
+	areaInfo
+	from t_member
+	where userName=#{memberName}
+</select>
+</mapper>
